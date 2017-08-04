@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+
+<TitledPane fx:controller="sample.controller.Controller" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" text="Bitstamp - BTC/USD" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <TabPane prefHeight="550.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Trade">
+                    <content>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="50.0" layoutY="14.0" text="2583.36" />
+                                <Label layoutX="100.0" layoutY="14.0" text="BTC/USD" />
+                                <Label layoutX="14.0" layoutY="39.0" text="Low:" />
+                                <Label layoutX="50.0" layoutY="39.0" text="2560.2" />
+                                <Label layoutX="100.0" layoutY="39.0" text="High:" />
+                                <Label layoutX="141.0" layoutY="39.0" text="2590.3" />
+                                <TabPane layoutX="188.0" layoutY="11.0" prefHeight="183.0" prefWidth="401.0" rotateGraphic="true" style="-fx-border-color: gray;" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="All trades">
+                                            <content>
+                                                <TableView  fx:id="tradesTable" prefHeight="142.0" prefWidth="429.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="tradeTime" prefWidth="105.0" text="Time" />
+                                                        <TableColumn fx:id="tradeType" prefWidth="48.0" text="Type" />
+                                                        <TableColumn fx:id="tradePrice" prefWidth="90.0" text="Price" />
+                                                        <TableColumn fx:id="tradeAmount" minWidth="0.0" prefWidth="58.0" text="Amount" />
+                                                        <TableColumn fx:id="tradeTotal" prefWidth="95.0" text="Total" />
+                                                    </columns>
+                                                </TableView>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="My trades" />
+                                    </tabs>
+                                </TabPane>
+                                <TabPane layoutX="10.0" layoutY="203.0" prefHeight="286.0" prefWidth="580.0" style="-fx-border-color: gray;" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Exchange">
+                                            <content>
+                                                <Pane prefHeight="232.0" prefWidth="573.0">
+                                                    <children>
+                                                        <TableView fx:id="buyOrdersTable" layoutX="8.0" layoutY="51.0" prefHeight="155.0" prefWidth="274.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="buyOrderPercent" prefWidth="23.0" text="\%" />
+                                                                <TableColumn fx:id="buyOrderPrice" prefWidth="70.0" text="Price" />
+                                                                <TableColumn fx:id="buyOrderBTC" prefWidth="53.0" text="BTC" />
+                                                                <TableColumn fx:id="buyOrderUSD" prefWidth="64.0" text="USD" />
+                                                                <TableColumn fx:id="buyOrderTotal" prefWidth="63.0" text="Total" />
+                                                            </columns>
+                                                        </TableView>
+                                                        <Label layoutX="8.0" layoutY="34.0" text="Buy orders" />
+                                                        <TableView fx:id="sellOrdersTable" layoutX="294.0" layoutY="51.0" prefHeight="155.0" prefWidth="272.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="sellOrderPercent" prefWidth="23.0" text="\%" />
+                                                                <TableColumn fx:id="sellOrderPrice" prefWidth="70.0" text="Price" />
+                                                                <TableColumn fx:id="sellOrderBTC" prefWidth="53.0" text="BTC" />
+                                                                <TableColumn fx:id="sellOrderUSD" prefWidth="64.0" text="USD" />
+                                                                <TableColumn fx:id="sellOrderTotal" prefWidth="63.0" text="Total" />
+                                                            </columns>
+                                                        </TableView>
+                                                        <Label layoutX="294.0" layoutY="34.0" text="Sell orders" />
+                                                        <Button layoutX="6.0" layoutY="9.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="61.0" text="BUY" />
+                                                        <TextField layoutX="117.0" layoutY="9.0" prefHeight="25.0" prefWidth="58.0" text="2560" />
+                                                        <Label layoutX="84.0" layoutY="13.0" text="Price:" />
+                                                        <Label layoutX="181.0" layoutY="13.0" text="USD" />
+                                                        <Label layoutX="231.0" layoutY="13.0" text="Amount: " />
+                                                        <TextField layoutX="282.0" layoutY="9.0" prefHeight="25.0" prefWidth="49.0" text="0.01" />
+                                                        <Label layoutX="336.0" layoutY="13.0" text="BTC" />
+                                                        <Label layoutX="378.0" layoutY="13.0" text="Total:" />
+                                                        <TextField disable="true" layoutX="410.0" layoutY="9.0" prefHeight="25.0" prefWidth="45.0" text="25.6" />
+                                                        <Label layoutX="464.0" layoutY="13.0" text="USD" />
+                                                        <Button layoutX="512.0" layoutY="9.0" mnemonicParsing="false" text="SELL" />
+                                                        <Button layoutX="8.0" layoutY="216.0" mnemonicParsing="false" text="Cancel Top 3" />
+                                                        <Label layoutX="103.0" layoutY="220.0" text="O/T: 0/0, 000" />
+                                                        <Button layoutX="179.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Cancel Bottom 3" />
+                                                        <Button layoutX="460.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Cancel Bottom 3" />
+                                                        <Label layoutX="386.0" layoutY="220.0" text="O/T: 0/0, 000" />
+                                                        <Button layoutX="294.0" layoutY="216.0" mnemonicParsing="false" text="Cancel Top 3" />
+                                                    </children>
+                                                </Pane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Margin" />
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                            <effect>
+                                <Blend mode="DARKEN" />
+                            </effect>
+                        </Pane>
+                    </content>
+                </Tab>
+                <Tab text="Settings" />
+            </tabs>
+        </TabPane>
+    </content>
+</TitledPane>
