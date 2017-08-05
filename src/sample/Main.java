@@ -18,12 +18,13 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 600, 550));
         primaryStage.show();
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                Controller.stopThread();
-            }
-        });
+//        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+//            @Override
+//            public void handle(WindowEvent event) {
+//                Controller.stopThread();
+//            }
+//        });
+        primaryStage.setOnCloseRequest((WindowEvent event) -> Controller.stopThread());
     }
 
     public static void main(String[] args) {

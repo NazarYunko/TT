@@ -79,7 +79,7 @@ public class Controller {
         setData();
     }
 
-    public void tradeInitialize() {
+    private void tradeInitialize() {
         tradeTime.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         tradeType.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         tradePrice.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
@@ -87,7 +87,7 @@ public class Controller {
         tradeTotal.setCellValueFactory(cellData -> cellData.getValue().totalProperty().asObject());
     }
 
-    public void orderInitialize() {
+    private void orderInitialize() {
         buyOrderPercent.setCellValueFactory(cellData -> cellData.getValue().percentProperty().asObject());
         buyOrderPrice.setCellValueFactory(cellData -> cellData.getValue().priceProperty().asObject());
         buyOrderBTC.setCellValueFactory(cellData -> cellData.getValue().btcProperty().asObject());
@@ -101,9 +101,8 @@ public class Controller {
         sellOrderTotal.setCellValueFactory(cellData -> cellData.getValue().totalProperty().asObject());
     }
 
-    public void setData() {
-
-        Runnable runnable = () -> {
+    private void setData() {
+        new Thread(() -> {
             while(!stopThread) {
 
                 Trade trade = new Trade(LocalDateTime.now(), "B",
@@ -120,9 +119,7 @@ public class Controller {
                     e.printStackTrace();
                 }
             }
-        };
-
-        new Thread(runnable).start();
+        }).start();
 
     }
 
